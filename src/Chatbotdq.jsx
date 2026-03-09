@@ -165,11 +165,13 @@ export default function Chatbot() {
     }
     else if (option === "No, I'd like to miss out.") {
       botResponses = [
-        {
-          text: "No problem! Feel free to come back if you change your mind.",
-          sender: "bot",
-        },
+        { text: "Redirecting...", sender: "bot" },
       ];
+      addMessagesWithDelay(botResponses);
+      setTimeout(() => {
+        window.location.href = "https://www.clicktrcks.com/8XFSC8/MM55P9/";
+      }, 500);
+      return;
     }else if (option === " Yes") {
       botResponses = [
         {
