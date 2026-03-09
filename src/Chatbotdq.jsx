@@ -160,7 +160,7 @@ export default function Chatbot() {
       addMessagesWithDelay(botResponses);
       setTimeout(() => {
         window.location.href = "https://www.clicktrcks.com/8XFSC8/MM55P9/";
-      }, 1500);
+      }, 500);
       return;
     }
     else if (option === "No, I'd like to miss out.") {
