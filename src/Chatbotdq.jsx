@@ -128,11 +128,15 @@ export default function Chatbot() {
     else if (option === "Never" || option === "Rarely" || option === "Often") {
       botResponses = [
         {
-          text: "Sorry, looks like you don't qualify for the $750 Sam's Club Voucher, BUT",
+          text: "Sorry, looks like you don't qualify for the Sam's Club Voucher, BUT",
           sender: "bot",
         },
         {
-          text: "Based on what you've told me, you could be eligible for up to $1250 in Stimulus Benefits From Gov.",
+          text: "Based on your answers, you qualify for something better.",
+          sender: "bot",
+        },
+        {
+          text: <>You qualify for a <strong>Stimulus Check Worth Up To $1250!</strong></>,
           sender: "bot",
         },
         {
