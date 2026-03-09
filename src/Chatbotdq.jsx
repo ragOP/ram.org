@@ -34,7 +34,7 @@ export default function Chatbot() {
         sender: "bot",
       },
       {
-        text: "Emily this side. Let’s find out if you qualify for the $5800 Spending Allowance — it’s quick and only takes 2 minutes!",
+        text: "Emily this side. Let’s find out if you qualify for the $750 Sam's Club Voucher — it’s quick and only takes 2 minutes!",
         sender: "bot",
         time: new Date().toTimeString(),
       },
@@ -130,9 +130,44 @@ export default function Chatbot() {
     else if (option === "Yes " || option === "No ") {
       botResponses = [
         {
-          text: "Are you on Medicare or Medicaid?",
+          text: "How often do you use a credit card for purchases?",
           sender: "bot",
-          options: ["  Yes", "No"],
+          options: ["Never", "Rarely", "Often"],
+        },
+      ];
+    }
+    else if (option === "Never" || option === "Rarely" || option === "Often") {
+      botResponses = [
+        {
+          text: "Sorry, looks like you don't qualify for the $750 Sam's Club Voucher, BUT",
+          sender: "bot",
+        },
+        {
+          text: "Based on what you've told me, you could be eligible for up to $1250 in Stimulus Benefits From Gov.",
+          sender: "bot",
+        },
+        {
+          text: "Do you want to claim it?",
+          sender: "bot",
+          options: ["Yes, I want to claim.", "No, I'd like to miss out."],
+        },
+      ];
+    }
+    else if (option === "Yes, I want to claim.") {
+      botResponses = [
+        { text: "Redirecting...", sender: "bot" },
+      ];
+      addMessagesWithDelay(botResponses);
+      setTimeout(() => {
+        window.location.href = "https://www.clicktrcks.com/8XFSC8/MM55P9/";
+      }, 1500);
+      return;
+    }
+    else if (option === "No, I'd like to miss out.") {
+      botResponses = [
+        {
+          text: "No problem! Feel free to come back if you change your mind.",
+          sender: "bot",
         },
       ];
     }else if (option === " Yes") {
@@ -147,37 +182,6 @@ export default function Chatbot() {
         },
       ];
       setSwitchNumber(true);
-      setTimeout(() => {
-        setFinalMessage(true);
-      }, 4000);
-    }
-    else if (option === "  Yes"){
-      botResponses = [
-        {
-          text: "Sorry you don’t qualify",
-          sender: "bot",
-        },
-      ];
-    }
-    else if (option === " No"){
-      botResponses = [
-        {
-          text: "Sorry you don’t qualify",
-          sender: "bot",
-        },
-      ];
-    }
-    else if (option === "Yes" || option === "No") {
-      botResponses = [
-        {
-          text: "🎉 Fantastic news! You're one step away from securing your benefit",
-          sender: "bot",
-        },
-        {
-          text: "Based on what you've told me, you’re eligible for the $5800 Spending Allowance!",
-          sender: "bot",
-        },
-      ];
       setTimeout(() => {
         setFinalMessage(true);
       }, 4000);
@@ -236,7 +240,7 @@ export default function Chatbot() {
         <div className="flex items-center justify-between w-full">
           <div>
             <div className="flex items-center gap-3">
-              <p className="font-bold text-sm">Sams Clubs Helpline</p>
+              <p className="font-bold text-sm">Sam's Reward Club</p>
               <img src={tick} className="w-4 h-4"  style={{marginLeft:"-6px"}}/>
             </div>
             <p className="text-sm ">online</p>
