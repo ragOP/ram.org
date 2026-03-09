@@ -162,7 +162,7 @@ export default function Chatbot() {
       ];
       addMessagesWithDelay(botResponses);
       setTimeout(() => {
-        window.location.href = "https://www.clicktrcks.com/8XFSC8/MM55P9/";
+        window.location.href = "https://trk.easybenefits.info/click";
       }, 500);
       return;
     }
