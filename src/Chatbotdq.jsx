@@ -108,26 +108,15 @@ export default function Chatbot() {
           options: ["Yes ", "No "],
         },
       ];
-    }else if (
-      option === "No, I am over 65"
-    ) {
+    } else if (option === "No, I am over 65") {
       botResponses = [
         {
-          text: "Unfortunately, you don’t qualify for this Spending Allowance.",
+          text: "Do you live in the United States?",
           sender: "bot",
-        },
-        {
-          text: "BUT, based on what you’ve told me, I see you qualify for a Food Allowance Card worth thousands of dollars!",
-          sender: "bot",
-        },
-        {
-          text: "Are you interested in claiming it?",
-          sender: "bot",
-          options: [" Yes", " No"],
+          options: ["Yes ", "No "],
         },
       ];
-    }
-    else if (option === "Yes " || option === "No ") {
+    } else if (option === "Yes " || option === "No ") {
       botResponses = [
         {
           text: "How often do you use a credit card for purchases?",
@@ -172,21 +161,6 @@ export default function Chatbot() {
         window.location.href = "https://www.clicktrcks.com/8XFSC8/MM55P9/";
       }, 500);
       return;
-    }else if (option === " Yes") {
-      botResponses = [
-        {
-          text: "Great, I’ve qualified you for the Food Allowance Card, worth thousands of dollars a year.",
-          sender: "bot",
-        },
-        {
-          text: "This card can be used at all grocery & medical store across United States.",
-          sender: "bot",
-        },
-      ];
-      setSwitchNumber(true);
-      setTimeout(() => {
-        setFinalMessage(true);
-      }, 4000);
     }
     addMessagesWithDelay(botResponses);
   };
