@@ -151,7 +151,7 @@ export default function Chatbot() {
       botResponses = [
         { text: "Congratulations! 🎉", sender: "bot" },
         {
-          text: "You're one step away from claiming your Stimulus Check worth up to $1250.",
+          text: <>You're one step away from claiming your <strong>Stimulus Check worth up to $1250.</strong></>,
           sender: "bot",
         },
       ];
