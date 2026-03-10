@@ -41,14 +41,13 @@ const CallToAction = ({ finalMessage, switchNumber }) => {
       </motion.div>
 
       <motion.a
-        href={switchNumber ? 'tel:+13236897861': 'tel:+18336638513'}
-        className="mt-4 bg-green-500 text-white text-lg font-bold py-3 px-6 rounded-md w-full max-w-md text-center transition hover:bg-green-600 relative"
+        href="tel:+18336638513"
+        className="mt-4 bg-green-500 text-white text-lg font-bold py-3 px-6 rounded-md w-full max-w-md text-center transition hover:bg-green-600 relative overflow-hidden call-button-shimmer"
         style={{ height: "120%", fontSize: "140%" }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
       >
-        {switchNumber ? "CALL (323)-689-7861": "CALL (833)-366-8513"}
-        
+        <span className="relative z-10">CALL (833)-366-8513</span>
       </motion.a>
 
       <motion.p
