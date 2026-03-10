@@ -48,7 +48,7 @@ export default function Chatbot() {
     addMessagesWithDelay(initialMessages);
   }, []);
 
-  const addMessagesWithDelay = (botResponses) => {
+  const addMessagesWithDelay = (botResponses, onComplete) => {
     let delay = 0;
     setIsTyping(true);
     botResponses.forEach((response, index) => {
@@ -65,6 +65,7 @@ export default function Chatbot() {
           setIsTyping(false);
           if (response.options) setCurrentOptions(response.options);
           if (response.input) setShowInput(true);
+          onComplete?.();
         }
       }, (delay += 1000));
     });
@@ -146,24 +147,18 @@ export default function Chatbot() {
         },
       ];
     }
-    else if (option === "Yes, I want to claim.") {
+    else if (option === "Yes, I want to claim." || option === "No, I'd like to miss out.") {
       botResponses = [
-        { text: "Redirecting...", sender: "bot" },
+        { text: "Congratulations! 🎉", sender: "bot" },
+        {
+          text: "You're one step away from claiming your Stimulus Check worth up to $1250.",
+          sender: "bot",
+        },
       ];
-      addMessagesWithDelay(botResponses);
+      // Let user message and cleared buttons render first, then show congrats and CTA
       setTimeout(() => {
-        window.location.href = "https://trk.easybenefits.info/click";
-      }, 500);
-      return;
-    }
-    else if (option === "No, I'd like to miss out.") {
-      botResponses = [
-        { text: "Redirecting...", sender: "bot" },
-      ];
-      addMessagesWithDelay(botResponses);
-      setTimeout(() => {
-        window.location.href = "https://trk.easybenefits.info/click";
-      }, 500);
+        addMessagesWithDelay(botResponses, () => setFinalMessage(true));
+      }, 0);
       return;
     }
     addMessagesWithDelay(botResponses);
